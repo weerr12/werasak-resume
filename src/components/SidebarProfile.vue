@@ -11,7 +11,7 @@ const profile = {
 }
 
 const socialLinks: SocialLink[] = [
-  { name: 'Resume', url: '/werasak-mayer.pdf' },
+  { name: 'Resume', url: `${import.meta.env.BASE_URL}werasak-mayer.pdf` },
   { name: 'LinkedIn', url: 'https://www.linkedin.com/in/werasak-mayer-3348a4287/' },
   { name: 'GitHub', url: 'https://github.com/weerr12' },
 ]
@@ -28,7 +28,7 @@ const socialLinks: SocialLink[] = [
         <div class="absolute inset-0 rounded-full border-[3px] border-dashed border-gray-400" />
         <div class="absolute inset-3 rounded-full overflow-hidden">
           <img
-            src="/profile.png"
+            :src="`${import.meta.env.BASE_URL}profile.png`"
             :alt="`${profile.name} profile photo`"
             class="w-full h-full object-cover"
           />
