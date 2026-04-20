@@ -3,6 +3,7 @@ interface Education {
   institution: string
   degree: string
   period: string
+  url: string
 }
 
 const education: Education[] = [
@@ -10,6 +11,7 @@ const education: Education[] = [
     institution: 'Chiang Mai University',
     degree: 'Bachelor of Engineering in Computer Engineering',
     period: '2022 - 2025',
+    url: 'https://www.cmu.ac.th/en/home',
   },
 ]
 </script>
@@ -23,7 +25,13 @@ const education: Education[] = [
       <div v-for="edu in education" :key="edu.institution">
         <h3 class="text-lg font-bold text-gray-800">
           {{ edu.degree }} at
-          <span class="text-blue-600">{{ edu.institution }}</span>
+          <a
+            :href="edu.url"
+            target="_blank"
+            class="text-blue-600 hover:text-blue-800 hover:underline transition-colors"
+          >
+            {{ edu.institution }}
+          </a>
         </h3>
 
         <p class="text-sm text-gray-500 mb-3">{{ edu.period }}</p>
