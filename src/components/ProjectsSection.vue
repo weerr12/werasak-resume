@@ -1,11 +1,16 @@
 <script setup lang="ts">
 import { Github, Youtube } from 'lucide-vue-next'
 
+interface ToolCategory {
+  category: string
+  items: string[]
+}
+
 interface Project {
   title: string
   description: string
   features: string[]
-  tools: string[]
+  tools: ToolCategory[]
   githubUrl: string
   demoUrl?: string
 }
@@ -21,7 +26,14 @@ const projects: Project[] = [
       'Service Marketplace: Architected a robust marketplace connecting hikers with verified local guides and drivers, featuring an availability scheduling system.',
       'Eco-Carpooling: Built a centralized trip management system to facilitate group travel, optimizing transportation logistics and reducing carbon footprints.',
     ],
-    tools: ['Nuxt 3', 'NestJS', 'Prisma', 'PostgreSQL', 'Docker', 'Cloudinary', 'Node-Cron'],
+    tools: [
+      { category: 'Platform', items: ['Docker', 'Docker Compose'] },
+      { category: 'Backend', items: ['NestJS', 'Node.js'] },
+      { category: 'Frontend', items: ['Nuxt 3', 'Vue.js', 'Tailwind CSS'] },
+      { category: 'Database', items: ['PostgreSQL', 'Prisma ORM'] },
+      { category: 'Authentication', items: ['Passport.js', 'JWT', 'Google OAuth'] },
+      { category: 'Services', items: ['Cloudinary API (Media)', 'Node-Cron (Safety Monitoring)'] },
+    ],
     githubUrl: 'https://github.com/weerr12/261492-Dernpa-Project',
     demoUrl: 'https://www.youtube.com/watch?v=BNi7zDLqB6o',
   },
@@ -35,7 +47,16 @@ const projects: Project[] = [
       'Geospatial Maps: Implemented a high-performance map interface using Leaflet and dynamic heatmaps for real-time spatial air quality tracking.',
       'Secure OAuth: Integrated Google OAuth 2.0 for secure user session management and personalized safety preference storage.',
     ],
-    tools: ['React', 'Node.js', 'Express', 'Prisma', 'PostgreSQL', 'Leaflet', 'Framer Motion', 'Zustand'],
+    tools: [
+      { category: 'Platform', items: ['Docker', 'Docker Compose'] },
+      { category: 'Backend', items: ['Node.js', 'Express.js'] },
+      { category: 'Frontend', items: ['React.js', 'Vite', 'Framer Motion'] },
+      { category: 'Database', items: ['PostgreSQL', 'Prisma ORM'] },
+      { category: 'Maps & Geospatial', items: ['Leaflet', 'React-Leaflet'] },
+      { category: 'State Management', items: ['Zustand'] },
+      { category: 'Visualization', items: ['Recharts'] },
+      { category: 'Security', items: ['Google OAuth 2.0'] },
+    ],
     githubUrl: 'https://github.com/Phurinon/Project_SE_T14',
   },
   {
@@ -48,7 +69,14 @@ const projects: Project[] = [
       'State Sync: Leveraged TanStack Query for sophisticated server-state management, ensuring real-time consistency for large digital art catalogs.',
       'Creative Analytics: Developed a comprehensive reporting suite using Chart.js to provide artists with detailed insights into sales performance and engagement.',
     ],
-    tools: ['React', 'Vite', 'TypeScript', 'TanStack Query', 'Chart.js', 'PromptPay-QR', 'Tailwind CSS'],
+    tools: [
+      { category: 'Frontend Core', items: ['React.js', 'Vite', 'TypeScript'] },
+      { category: 'State & Sync', items: ['TanStack Query (React Query)', 'Axios'] },
+      { category: 'Fintech Integration', items: ['PromptPay-QR', 'QRCode.js'] },
+      { category: 'Visualization', items: ['Chart.js', 'React-Chartjs-2'] },
+      { category: 'UI Frameworks', items: ['Tailwind CSS', 'Bootstrap', 'React-Bootstrap'] },
+      { category: 'Icons', items: ['Lucide Icons', 'FontAwesome'] },
+    ],
     githubUrl: 'https://github.com/SUPATKN/Art-and-Community',
   },
 ]
@@ -61,14 +89,14 @@ const projects: Project[] = [
 
     <div class="space-y-8 mb-5">
       <template v-for="project in projects" :key="project.title">
-        <div>
-          <h3 class="text-xl font-bold text-gray-800 mb-3">{{ project.title }}</h3>
+        <div class="group">
+          <h3 class="text-2xl font-bold text-gray-800 mb-3">{{ project.title }}</h3>
           <div class="flex flex-wrap gap-2 mb-4">
             <a
               :href="project.githubUrl"
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center gap-1.5 p-1 rounded text-white text-[10px] font-medium bg-gray-800 hover:bg-gray-700 transition-colors"
+              class="inline-flex items-center gap-1.5 p-1 px-2 rounded text-white text-[11px] font-medium bg-gray-800 hover:bg-gray-700 transition-colors"
             >
               <Github :size="14" /> View on GitHub
             </a>
@@ -77,38 +105,49 @@ const projects: Project[] = [
               :href="project.demoUrl"
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center gap-1.5 p-1 rounded text-white text-[10px] font-medium bg-red-600 hover:bg-red-500 transition-colors"
+              class="inline-flex items-center gap-1.5 p-1 px-2 rounded text-white text-[11px] font-medium bg-red-600 hover:bg-red-500 transition-colors"
             >
               <Youtube :size="14" />
               View on YouTube
             </a>
           </div>
 
-          <p class="text-sm text-gray-600 leading-relaxed text-justify mb-4 italic">
+          <p class="text-sm text-gray-600 leading-relaxed text-justify mb-6 italic">
             "{{ project.description }}"
           </p>
 
-          <ul class="list-disc list-outside pl-8 space-y-2 mb-5">
-            <li v-for="feature in project.features" :key="feature" class="text-base text-gray-700">
-              <span class="font-semibold text-gray-800 text-sm">{{ feature.split(':')[0] }}</span>
-              <span v-if="feature.includes(':')" class="text-gray-600"
-                >: {{ feature.split(':').slice(1).join(':') }}</span
-              >
-            </li>
-          </ul>
+          <div>
+            <h4 class="text-lg font-bold text-gray-800 mb-3 flex items-center gap-2">
+              <span class="w-1.5 h-6 bg-blue-600 rounded-full"></span>
+              Key Features
+            </h4>
+            <ul class="list-disc list-outside pl-8 space-y-2 mb-8">
+              <li v-for="feature in project.features" :key="feature" class="text-base text-gray-700 group/item">
+                <span class="font-semibold text-gray-800 text-sm group-hover/item:text-blue-700 transition-colors">
+                  {{ feature.split(':')[0] }}
+                </span>
+                <span v-if="feature.includes(':')" class="text-gray-600"
+                  >: {{ feature.split(':').slice(1).join(':') }}</span
+                >
+              </li>
+            </ul>
+          </div>
 
-          <div class="flex flex-wrap gap-2 mt-4">
-            <span
-              v-for="tool in project.tools"
-              :key="tool"
-              class="px-2 py-0.5 bg-blue-50 text-blue-700 text-[11px] font-medium rounded-full border border-blue-100"
-            >
-              {{ tool }}
-            </span>
+          <div>
+            <h4 class="text-lg font-bold text-gray-800 mb-3 flex items-center gap-2">
+              <span class="w-1.5 h-6 bg-gray-400 rounded-full"></span>
+              Tools / Technologies
+            </h4>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 pl-4">
+              <div v-for="group in project.tools" :key="group.category" class="text-sm border-l-2 border-gray-100 pl-3">
+                <span class="font-bold text-gray-700 block md:inline">{{ group.category }}:</span>
+                <span class="text-gray-600 md:ml-1">{{ group.items.join(', ') }}</span>
+              </div>
+            </div>
           </div>
         </div>
 
-        <hr class="border-t border-gray-100 w-full mt-8" />
+        <hr class="border-t border-gray-200 w-full mt-10" />
       </template>
     </div>
   </section>
