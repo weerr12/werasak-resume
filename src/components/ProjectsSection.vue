@@ -122,8 +122,14 @@ const projects: Project[] = [
               Key Features
             </h4>
             <ul class="list-disc list-outside pl-8 space-y-2 mb-8">
-              <li v-for="feature in project.features" :key="feature" class="text-base text-gray-700 group/item">
-                <span class="font-semibold text-gray-800 text-sm group-hover/item:text-blue-700 transition-colors">
+              <li
+                v-for="feature in project.features"
+                :key="feature"
+                class="text-base text-gray-700 group/item"
+              >
+                <span
+                  class="font-semibold text-gray-800 text-sm group-hover/item:text-blue-700 transition-colors"
+                >
                   {{ feature.split(':')[0] }}
                 </span>
                 <span v-if="feature.includes(':')" class="text-gray-600"
@@ -138,8 +144,12 @@ const projects: Project[] = [
               <span class="w-1.5 h-6 bg-gray-400 rounded-full"></span>
               Tools / Technologies
             </h4>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 pl-4">
-              <div v-for="group in project.tools" :key="group.category" class="text-sm border-l-2 border-gray-100 pl-3">
+            <div class="grid grid-cols-1 gap-x-8 gap-y-2 pl-4">
+              <div
+                v-for="group in project.tools"
+                :key="group.category"
+                class="text-sm border-l-2 border-gray-100 pl-3"
+              >
                 <span class="font-bold text-gray-700 block md:inline">{{ group.category }}:</span>
                 <span class="text-gray-600 md:ml-1">{{ group.items.join(', ') }}</span>
               </div>
