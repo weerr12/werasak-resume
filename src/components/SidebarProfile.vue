@@ -13,7 +13,7 @@ const profile = {
 }
 
 const socialLinks: SocialLink[] = [
-  { name: 'Resume', url: `${baseUrl}werasak-mayer.pdf` },
+  { name: 'Resume', url: `${baseUrl}werasak-mayer-resume.pdf` },
   { name: 'LinkedIn', url: 'https://www.linkedin.com/in/werasak-mayer-3348a4287/' },
   { name: 'GitHub', url: 'https://github.com/weerr12' },
 ]
