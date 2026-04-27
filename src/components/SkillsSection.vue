@@ -7,7 +7,7 @@ interface SkillCategory {
 const skillCategories: SkillCategory[] = [
   {
     name: 'Programming Languages',
-    skills: ['JavaScript', 'TypeScript', 'Python', 'SQL'],
+    skills: ['JavaScript', 'TypeScript', 'Python', 'SQL', 'NoSQL'],
   },
   {
     name: 'Frontend',
@@ -19,7 +19,7 @@ const skillCategories: SkillCategory[] = [
   },
   {
     name: 'Other',
-    skills: ['PostgreSQL', 'MySQL', 'Docker', 'Git', 'Postman', 'DBeaver'],
+    skills: ['PostgreSQL', 'MySQL', 'MongoDB', 'SQLite', 'Docker', 'Git', 'Postman', 'DBeaver'],
   },
 ]
 </script>

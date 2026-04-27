@@ -10,7 +10,7 @@ const education: Education[] = [
   {
     institution: 'Chiang Mai University',
     degree: 'Bachelor of Engineering in Computer Engineering',
-    period: '2022 - 2025',
+    period: '2022 - 2026',
     url: 'https://www.cmu.ac.th/en/home',
   },
 ]

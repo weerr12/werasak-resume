@@ -9,7 +9,7 @@ interface SocialLink {
 const profile = {
   name: 'Werasak Mayer',
   email: 'werasak.mayer0@gmail.com',
-  bio: 'I am a highly motivated computer engineering graduate and full-stack developer, ready to build scalable and efficient software solutions. With combined experience in developing end-to-end web applications, I have a strong foundation in both frontend and backend architectures, from designing responsive user interfaces to optimizing database schemas. My proficiency in modern tech stacks and system design empowers me to deliver high-performance applications and drive digital innovation.',
+  bio: 'Highly motivated Computer Engineering graduate with a 4-month Frontend Developer internship at PDKM. Proficient in building scalable and efficient software solutions with a strong foundation in Full-Stack/Backend/Frontend developer. Experienced in developing end-to-end web applications, designing responsive user interfaces, optimizing database schemas, and leveraging modern tech stacks. Skilled in Agile/Scrum methodology and prototyping to deliver high-performance applications and drive digital innovation.',
 }
 
 const socialLinks: SocialLink[] = [

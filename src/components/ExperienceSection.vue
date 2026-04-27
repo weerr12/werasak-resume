@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 interface Experience {
   company: string
   companyUrl: string
@@ -14,13 +13,13 @@ const experiences: Experience[] = [
   {
     company: 'Paiduaykanmai',
     companyUrl: 'https://pdkm.tech/th/contact-us',
-    role: 'Frontend Developer (Co-operative Education) ',
+    role: 'Frontend Developer Internship ',
     period: 'Jun 2025 – Oct 2025',
     duration: '4 months',
     summary: 'Contributed to a team building scalable microservices.',
     accomplishments: [
-      'Automated source code ingestion by architecting a GitHub OAuth 2.0 module, eliminating 100% of manual uploads and streamlining AI-driven analysis for the "Cortex AI" project.',
-      'Engineered a scalable design system of 31+ reusable components using CVA and Tailwind CSS v4, reducing frontend development lead time and ensuring cross-product UI consistency.',
+      'Systematized source code ingestion by architecting a GitHub OAuth 2.0 module, eliminating 100% of manual uploads and streamlining Al-driven analysis for the Cortex Al project.',
+      'Designed a scalable design system of 31+ reusable components using CVA and Tailwind CSS v4, reducing frontend development lead time and ensuring cross-product UI consistency.',
       'Accelerated architectural auditing by developing an interactive analytics dashboard with ECharts, providing engineers with real-time visibility into codebase health.',
       'Optimized AI-to-Code synchronization pipelines, achieving 100% architectural integrity between generated outputs and production-ready codebases.',
     ],
